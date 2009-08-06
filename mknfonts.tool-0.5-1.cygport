@@ -1,0 +1,10 @@
+inherit gnustep
+
+DESCRIPTION="Creates GNUstep .nfont resources from system fonts"
+HOMEPAGE="http://packages.debian.org/sid/mknfonts.tool"
+SRC_URI="mirror://debian/pool/main/m/${PN}/${PN}_${PV}.orig.tar.gz"
+PATCH_URI="mirror://portage/gnustep-base/${ORIG_PN}/files/${ORIG_PN}-rename.patch
+           0.5-as-needed.patch
+           0.5-update-nfonts.patch"
+
+DISTCLEANFILES="update-nfonts"

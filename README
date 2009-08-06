@@ -1,0 +1,60 @@
+mknfonts.tool
+------------------------------------------
+A small program and helper script to create GNUstep .nfont resources 
+from system fonts.
+
+Runtime requirements:
+  cygwin-1.7.0-56
+  bash
+  coreutils
+  grep
+  libfreetype6-2.3.9-1
+  libgcc1-4.3.2-2
+  libgnustep-base1.18-1.18.0-1
+  libobjc2-4.3.2-2
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygport-0.9.9-1
+  gcc4-core-4.3.2-2
+  gcc4-objc-4.3.2-2
+  gnustep-make-2.2.0-1
+  make-3.81-2
+  sed-4.1.5-2
+
+Canonical website:
+  http://packages.debian.org/sid/mknfonts.tool
+
+Canonical download:
+  http://ftp.debian.org/debian/pool/main/m/mknfonts.tool/
+
+-------------------------------------------
+
+Build instructions:
+  unpack mknfonts.tool-0.5-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./mknfonts.tool-0.5-X.cygport all
+
+This will create:
+  /usr/src/mknfonts.tool-0.5-X-src.tar.bz2
+  /usr/src/mknfonts.tool-0.5-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+  /usr/bin/mknfonts.exe
+  /usr/bin/update-nfonts
+
+------------------
+
+Port Notes:
+
+----- version 0.5-1 -----
+Initial release for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/

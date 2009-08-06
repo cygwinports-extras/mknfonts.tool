@@ -1,0 +1,43 @@
+--- origsrc/mknfonts-0.5/GNUmakefile	2002-09-28 05:27:26.000000000 -0500
++++ src/mknfonts-0.5/GNUmakefile	2009-08-06 01:35:10.245534200 -0500
+@@ -16,3 +16,5 @@ VERSION = 0.5
+ 
+ include $(GNUSTEP_MAKEFILES)/tool.make
+ 
++after-install ::
++	@$(INSTALL) -m 0755 update-nfonts $(GNUSTEP_TOOLS)
+--- origsrc/mknfonts-0.5/update-nfonts	1969-12-31 18:00:00.000000000 -0600
++++ src/mknfonts-0.5/update-nfonts	2009-08-06 01:28:16.300459200 -0500
+@@ -0,0 +1,32 @@
++#! /bin/sh
++
++tmpdir=$(mktemp -d)
++
++pushd $tmpdir &>/dev/null || exit 1
++
++echo "Finding fonts ..."
++ln -s $(find /usr/share/fonts /usr/share/ghostscript/fonts "$HOME/.fonts" "$(cygpath -W -u)/Fonts" -name '*.[ot]tf' -o -name '*.pf[ab]' 2>/dev/null) .
++mknfonts *.[ot]tf *.pf[ab]
++
++eval $(grep ^GNUSTEP_USER_DIR_LIBRARY= /etc/GNUstep/GNUstep.conf)
++mkdir -p $HOME/$GNUSTEP_USER_DIR_LIBRARY/Fonts
++
++for d in [A-Z]*.nfont
++do
++	echo "Updating $d ..."
++	for f in $(grep -E '\.([ot]tf|pf[ab])$' "$d/FontInfo.plist")
++	do
++		ln -s $(readlink "$f") "$d/$f"
++	done
++
++	rm -fr "$HOME/$GNUSTEP_USER_DIR_LIBRARY/Fonts/$d"
++	cp -fr "$d" "$HOME/$GNUSTEP_USER_DIR_LIBRARY/Fonts/"
++done
++
++popd &>/dev/null
++
++echo "Cleaning up ..."
++rm -fr $tmpdir
++
++echo "Done."
++exit 0

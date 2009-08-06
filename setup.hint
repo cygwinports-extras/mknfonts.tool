@@ -1,0 +1,5 @@
+category: GNUstep
+requires: bash coreutils grep libfreetype6 libgcc1 libgnustep-base1.18 libobjc2
+sdesc: "GNUstep .nfont resource creator"
+ldesc: "A small program and helper script to create GNUstep .nfont 
+resources from system fonts."
