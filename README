@@ -23,10 +23,10 @@ Build requirements:
   sed-4.1.5-2
 
 Canonical website:
-  http://packages.debian.org/sid/mknfonts.tool
+  http://www.gnustep.org/
 
 Canonical download:
-  http://ftp.debian.org/debian/pool/main/m/mknfonts.tool/
+  ftp://ftp.gnustep.org/pub/gnustep/dev-apps/
 
 -------------------------------------------
 
