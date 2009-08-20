@@ -4,7 +4,6 @@ DESCRIPTION="Creates GNUstep .nfont resources from system fonts"
 
 SRC_URI="mirror://gnustep/dev-apps/${ORIG_PN}-${PV}.tar.gz"
 PATCH_URI="mirror://portage/gnustep-base/${ORIG_PN}/files/${ORIG_PN}-rename.patch
-           0.5-as-needed.patch
            0.5-update-nfonts.patch"
 
 DISTCLEANFILES="update-nfonts"
